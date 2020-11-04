@@ -133,7 +133,7 @@ const Shop = (props) => {
                 </BoxStyle>
             </ContainerStyle>
             
-
+            <MapInfo name={shop.pt_name}add={shop.pt_address}/>
             <br/>
 
             <CopyToClipboard text={shop.pt_address}

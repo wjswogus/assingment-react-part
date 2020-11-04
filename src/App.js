@@ -12,6 +12,7 @@ import Shop_upload from './components/Shop_upload';
 import { Route } from 'react-router-dom';
 
 import Etc from './Etc';
+import Admin from './pages/Admin';
 
 
 
@@ -24,13 +25,9 @@ function App() {
       <div className="header">
       <Header/>
       </div>
-   {/*    
-      <List type="gym / studio "/>
-     
-      <Shop/>
-     
-      <Shop_upload/>
-*/}  
+   
+
+      <Admin/>
       <Route path="/pthome" exact={true} component={List} type="gym / studio "/>
       
       <Route path="/shop/:id" exact={true} component={Shop} />

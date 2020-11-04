@@ -5,7 +5,7 @@ const { kakao } = window;
 
 
 const MapInfo = (props) => {
-    const add = props.add;
+    const {name, add} = props;
 
     useEffect(() => {
         const container = document.getElementById("myMap");
@@ -14,12 +14,11 @@ const MapInfo = (props) => {
           level: 3,
         };
         const map = new kakao.maps.Map(container, options);
-        
+
         const geo = new kakao.maps.services.Geocoder();
-        console.log(geo);
 
         // 주소로 좌표를 검색합니다
-        geo.addressSearch('제주특별자치도 제주시 첨단로 242', function(result, status) {
+        geo.addressSearch(add, function(result, status) {
         
             // 정상적으로 검색이 완료됐으면 
              if (status === kakao.maps.services.Status.OK) {
@@ -34,7 +33,7 @@ const MapInfo = (props) => {
         
                 // 인포윈도우로 장소에 대한 설명을 표시합니다
                 let infowindow = new kakao.maps.InfoWindow({
-                    content: '<div style="width:80px;text-align:center;padding:6px 0;">가고싶은 곳</div>'
+                    content: '<div style="width:80px;text-align:center;">'+name+'</div>'
                 });
                 infowindow.open(map, marker);
         

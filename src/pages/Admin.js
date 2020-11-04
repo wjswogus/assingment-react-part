@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Pagination } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const TableStyle = styled.div`
@@ -39,14 +40,23 @@ const Admin = () => {
 
     return (
         <div>
+
+            <Link to={`/pthome`}>
+                <button>메인회면</button>
+            </Link>
+
+            <hr/>
+
+
+
             <TableStyle>
-                <tr>
+            
                     <th>회원 번호</th>
                     <th>회원 아이디</th>
                     <th>회원 종류</th>
                     <th>회원 정보</th>
                     <th>승인 버튼</th>
-                </tr>
+           
                 {userList.map((user) => (
                     <tr>
                         <td>{user.no}</td>
